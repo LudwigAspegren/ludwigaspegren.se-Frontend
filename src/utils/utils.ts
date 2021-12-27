@@ -1,17 +1,36 @@
 import type PhotosetViewModel from "src/types/photosetViewModel";
 import type PhotoViewModel from "src/types/photoViewModel";
 
-export const getFlickrObject = <T extends PhotoViewModel | PhotosetViewModel>(id: String, list: Array<T>): T => {
+export const emptyPhotoViewModel = (): PhotoViewModel => {
+    return {
+        title: '',
+        uri: '',
+        id: '',
+        album: '',
+    }
+
+}
+export const emptyPhotosetViewModel = (): PhotosetViewModel => {
+    return {
+        title: '',
+        id: '',
+        photos: [],
+    }
+
+}
+
+export const getPhoto = (id: String, list: Array<PhotoViewModel>): PhotoViewModel => {
     let ps = list.find((p) => p.title == id);
-    return ps ? ps : createEmptyObject<T>();
+    return ps ? ps : emptyPhotoViewModel();
+};
+export const getPhotoset = (id: String, list: Array<PhotosetViewModel>): PhotosetViewModel => {
+    let ps = list.find((p) => p.title == id);
+    return ps ? ps : emptyPhotosetViewModel();
 };
 
-const article: PhotosetViewModel | PhotoViewModel = ({} as any) as PhotosetViewModel | PhotoViewModel;
 
-export const createEmptyObject = <T extends Partial<PhotoViewModel | PhotosetViewModel>>(): (PhotoViewModel | PhotosetViewModel) & T => {
-    return Object.assign(article);
-};
+type Article = PhotosetViewModel | PhotoViewModel;
 
-export const isEmpty = <T>(obj: T) : Boolean => {
+export function isEmpty(obj: Article) {
     return Object.keys(obj).length === 0;
 }

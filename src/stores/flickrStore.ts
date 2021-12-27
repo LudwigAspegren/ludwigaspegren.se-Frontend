@@ -1,10 +1,13 @@
-import type PhotosetViewModel from "src/types/photosetViewModel";
-import { writable } from "svelte/store";
-import type { Writable } from "svelte/store";
 import type PhotoViewModel from "$types/photoViewModel";
-export const photo: Writable<PhotoViewModel> = writable({} as PhotoViewModel);
-export const photoset: Writable<PhotosetViewModel> = writable({} as PhotosetViewModel);
+import { emptyPhotosetViewModel, emptyPhotoViewModel } from "$utils/utils";
+import type PhotosetViewModel from "src/types/photosetViewModel";
+import type { Writable } from "svelte/store";
+import { writable } from "svelte/store";
+
+export const photo: Writable<PhotoViewModel> = writable(emptyPhotoViewModel());
+export const photoset: Writable<PhotosetViewModel> = writable(emptyPhotosetViewModel());
 export const photosets: Writable<PhotosetViewModel[]> = writable([]);
+
 const fetchPhotoset = async (id: string): Promise<PhotosetViewModel> => {
     const url = `https://localhost:62727/api/flickr/photosets/${id}`;
     const res = await fetch(url);
@@ -12,7 +15,7 @@ const fetchPhotoset = async (id: string): Promise<PhotosetViewModel> => {
     return data;
 }
 
-const fetchAll = async (ids: string[]) => {
+export const fetchAll = async (ids: string[]) => {
     const requests: Promise<PhotosetViewModel>[] = [];
     for (const id of ids) {
         let request = fetchPhotoset(id)
@@ -21,6 +24,7 @@ const fetchAll = async (ids: string[]) => {
     const promises = Promise.all(requests)
     const unpackedPhotosets = (await promises).map(r => r)
     photosets.set(unpackedPhotosets);
+    return unpackedPhotosets
 }
 
 export const photosetIds = [
@@ -31,4 +35,3 @@ export const photosetIds = [
     "72157716840357521",
 ];
 
-fetchAll(photosetIds)

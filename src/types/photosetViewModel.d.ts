@@ -5,8 +5,3 @@ export default interface PhotosetViewModel {
   id: string;
   photos: photoViewModel[];
 }
-
-// export default interface PhotosetViewModel {
-//   title: string;
-//   id: string;
-// }

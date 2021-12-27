@@ -2,9 +2,14 @@
 	import { page } from '$app/stores';
 	import Image from '$components/image.svelte';
 	import { photosets } from '$stores/flickrStore';
-	import type PhotosetViewModel from '$types/photosetViewModel';
-	import { getFlickrObject, isEmpty } from '$utils/utils';
-	import { beforeUpdate } from 'svelte';
+	import { getPhotoset,isEmpty } from '$utils/utils';
+	import { get } from 'svelte/store';
+	
+	export async function load({page, session}:any) {
+		let ps = get(photosets)
+		let currentPhotoset = getPhotoset(page.params.photoset, ps)
+		return {props: {currentPhotoset}}
+	}
 </script>
 
 <script lang="ts">
@@ -23,10 +28,7 @@
 			}
 		}
 	}, 10);
-
-	let currentPhotoset: PhotosetViewModel = {} as PhotosetViewModel;
-	$: currentPhotoset = getFlickrObject($page.params.photoset, $photosets);
-	$: console.log(images);
+	$: currentPhotoset  = getPhotoset($page.params.photoset, $photosets);
 </script>
 
 <svelte:window on:scroll={onScroll} />
@@ -44,7 +46,7 @@
 	<section>
 		{#each currentPhotoset.photos as photo, index}
 			<a sveltekit:prefetch href="{$page.path}/{photo.title}" class="items">
-				<Image {photo} bind:this={images[index]} />
+				<Image height="50vh" {photo} bind:this={images[index]} />
 			</a>
 		{/each}
 	</section>
@@ -56,13 +58,13 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		row-gap: 60vh;
+		row-gap: 40vh;
 	}
 	.center{
 		display: flex;
 		justify-content: center;
 	}
 	h1{
-		width: 35rem;
+		width: var(--content-width);
 	}
 </style>

@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { photosets } from '$stores/flickrStore';
 </script>
 
@@ -15,11 +15,10 @@
 		gap: 1rem;
 	}
 	a {
-		transition: border-bottom 200ms ease-in;
+		transition: border-bottom var(--transition-short) ease-in;
 		border-bottom: 2px solid rgba(40, 40, 40, 0);
 	}
 	a:hover {
 		border-bottom: 2px solid rgba(40, 40, 40, 0.2);
 	}
 </style>
-©@£$∞

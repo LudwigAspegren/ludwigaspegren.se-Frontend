@@ -5,6 +5,7 @@
 
 <script lang="ts">
 	export let photo: PhotoViewModel;
+	export let height: string;
 
 	$: animation = 'img-zoom-in';
 
@@ -14,7 +15,6 @@
 
 	onMount(() => {
 		viewPortHeight = document.documentElement.clientHeight;
-		console.log(viewPortHeight);
 	});
 	export const isInFrame = () => {
 		if (itemRef && isFirstAppearance) {
@@ -26,29 +26,28 @@
 			}
 		}
 	};
-	$: isLandscape = () => {
-		let _isLandscape: string = 'max-width:80vw';
-		console.log(itemRef);
-		if (itemRef) {
-			let width = itemRef.getBoundingClientRect().width;
-			let height = itemRef.getBoundingClientRect().height;
-			console.log(width / height);
-			if (width / height < 1) {
-				_isLandscape = 'max-height:80vh';
-			}
-		}
-		return _isLandscape;
-	};
+	// $: isLandscape = () => {
+	// 	let _isLandscape: string = 'max-width:80vw';
+	// 	console.log(itemRef);
+	// 	if (itemRef) {
+	// 		let width = itemRef.getBoundingClientRect().width;
+	// 		let height = itemRef.getBoundingClientRect().height;
+	// 		console.log(width / height);
+	// 		if (width / height < 1) {
+	// 			_isLandscape = 'max-height:80vh';
+	// 		}
+	// 	}
+	// 	return _isLandscape;
+	// };
 </script>
 
 {#if photo}
-	<div class="box">
-		<img src={photo.uri} alt={photo.title} bind:this={itemRef} class="zoom {animation} fade-in"/>
+	<div class="box" style="height:{height}">
+		<img src={photo.uri} alt={photo.title} bind:this={itemRef} class="zoom {animation} fade-in" />
 	</div>
 {/if}
 
 <style>
-	
 	.img-zoom-in {
 		transform: scale(1.03);
 	}
@@ -64,7 +63,7 @@
 		max-width: 100%;
 		max-height: 100%;
 		display: block;
-		transition: transform ease-in 600ms;
+		transition: transform ease-in var(--transition-long);
 		transform-origin: center;
 	}
 </style>
