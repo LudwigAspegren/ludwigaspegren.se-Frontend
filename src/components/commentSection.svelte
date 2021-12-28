@@ -1,18 +1,41 @@
+<svelte:window bind:scrollY={y} bind:outerHeight={height} bind:innerHeight={inHeight}/>
+
 <script lang="ts">
 	import MessageForm from '$components/messageForm.svelte';
-	import { messages } from '$stores/messageStore';
-	const submitMessage = (e: CustomEvent) => {
-		$messages = [...$messages, e.detail];
+	import type MessageViewModel from '$types/message';
+	import { afterUpdate, beforeUpdate } from 'svelte';
+	let messagess: MessageViewModel[] = [];
+	const handleSubmit = () => {
+		messagess = [...messagess, message];
+		message = {} as MessageViewModel;
+		requestAnimationFrame(() => window.scrollTo(0,y + 100))
+		return true;
 	};
 	let isShown = false;
 	const showMessageForm = () => {
 		isShown = true;
 	};
+
+	let message: MessageViewModel;
+	let div: any;
+	let autoscroll: any;
+	let y: number;
+	let height: number;
+	let inHeight: number;
+	beforeUpdate(() => {
+		console.log("updated")
+		// autoscroll = div && div.offsetHeight + div.scrollTop > div.scrollHeight - 20;
+	});
+	
+	afterUpdate(() => {
+		// if (autoscroll) div.scrollTo(0, div.scrollHeight);
+	});
 </script>
+
 
 <section class="fade-in">
 	<h2>Comments</h2>
-	{#each $messages as message}
+	{#each messagess as message}
 		<div class="message">
 			<h6>{message.title}</h6>
 			<p>{message.message}</p>
@@ -21,8 +44,8 @@
 	{#if !isShown}
 		<button on:click={() => showMessageForm()}>Comment</button>
 	{:else}
-		<div class="form fade-in">
-			<MessageForm on:send={(e) => submitMessage(e)} />
+		<div class="form fade-in" bind:this={div}>
+			<MessageForm on:submit={handleSubmit} bind:message />
 		</div>
 	{/if}
 </section>

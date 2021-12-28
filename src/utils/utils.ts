@@ -31,6 +31,6 @@ export const getPhotoset = (id: String, list: Array<PhotosetViewModel>): Photose
 
 type Article = PhotosetViewModel | PhotoViewModel;
 
-export function isEmpty(obj: Article) {
+export function isEmpty<T>(obj: T) {
     return Object.keys(obj).length === 0;
 }

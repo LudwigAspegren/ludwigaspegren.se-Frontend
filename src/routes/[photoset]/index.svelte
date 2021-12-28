@@ -2,13 +2,14 @@
 	import { page } from '$app/stores';
 	import Image from '$components/image.svelte';
 	import { photosets } from '$stores/flickrStore';
-	import { getPhotoset,isEmpty } from '$utils/utils';
+	import type PhotosetViewModel from '$types/photosetViewModel';
+	import { getPhotoset, isEmpty } from '$utils/utils';
 	import { get } from 'svelte/store';
-	
-	export async function load({page, session}:any) {
-		let ps = get(photosets)
-		let currentPhotoset = getPhotoset(page.params.photoset, ps)
-		return {props: {currentPhotoset}}
+
+	export async function load({ page, session }: any) {
+		let ps = get(photosets);
+		let currentPhotoset = getPhotoset(page.params.photoset, ps);
+		return { props: { currentPhotoset } };
 	}
 </script>
 
@@ -28,7 +29,7 @@
 			}
 		}
 	}, 10);
-	$: currentPhotoset  = getPhotoset($page.params.photoset, $photosets);
+	export let currentPhotoset: PhotosetViewModel;
 </script>
 
 <svelte:window on:scroll={onScroll} />
@@ -60,11 +61,11 @@
 		align-items: center;
 		row-gap: 40vh;
 	}
-	.center{
+	.center {
 		display: flex;
 		justify-content: center;
 	}
-	h1{
+	h1 {
 		width: var(--content-width);
 	}
 </style>
