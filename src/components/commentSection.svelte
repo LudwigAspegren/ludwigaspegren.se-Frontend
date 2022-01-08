@@ -1,5 +1,3 @@
-<svelte:window bind:scrollY={y} bind:outerHeight={height} bind:innerHeight={inHeight}/>
-
 <script lang="ts">
 	import MessageForm from '$components/messageForm.svelte';
 	import type MessageViewModel from '$types/message';
@@ -8,7 +6,7 @@
 	const handleSubmit = () => {
 		messagess = [...messagess, message];
 		message = {} as MessageViewModel;
-		requestAnimationFrame(() => window.scrollTo(0,y + 100))
+		requestAnimationFrame(() => window.scrollTo(0, y + 100));
 		return true;
 	};
 	let isShown = false;
@@ -23,15 +21,16 @@
 	let height: number;
 	let inHeight: number;
 	beforeUpdate(() => {
-		console.log("updated")
-		// autoscroll = div && div.offsetHeight + div.scrollTop > div.scrollHeight - 20;
+		console.log('updated');
+		// autoscroll = div && div.offsetHeight + div.scrollTop > div.scrollHeight - 20;x
 	});
-	
+
 	afterUpdate(() => {
 		// if (autoscroll) div.scrollTo(0, div.scrollHeight);
 	});
 </script>
 
+<svelte:window bind:scrollY={y} bind:outerHeight={height} bind:innerHeight={inHeight} />
 
 <section class="fade-in">
 	<h2>Comments</h2>
@@ -42,7 +41,9 @@
 		</div>
 	{/each}
 	{#if !isShown}
-		<button on:click={() => showMessageForm()}>Comment</button>
+		<div>
+			<button on:click={() => showMessageForm()}>Comment</button>
+		</div>
 	{:else}
 		<div class="form fade-in" bind:this={div}>
 			<MessageForm on:submit={handleSubmit} bind:message />
@@ -69,6 +70,9 @@
 		border-bottom: solid 1px rgb(245, 245, 245);
 	}
 	.form {
+		width: var(--content-width);
+	}
+	div {
 		width: var(--content-width);
 	}
 </style>

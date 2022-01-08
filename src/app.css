@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
 a {
-	color: rgb(40, 40, 40);
+	color: var(--text-color);
 	text-decoration: none;
 }
 p {
@@ -10,15 +10,24 @@ p {
 a:hover {
 	border-bottom: 2px solid black;
 } */
+h1 {
+	color: var(--text-color);
+}
+h2 {
+	color: var(--text-color);
+}
 h3 {
 	font-weight: 500;
 	font-size: 1rem;
+	color: var(--text-color);
 }
+
 :root {
 	font-family: 'Open Sans', sans-serif;
 	--content-width: 35rem;
 	--transition-long: 600ms;
 	--transition-short: 300ms;
+	--text-color: rgb(40, 40, 40);
 }
 
 body {
@@ -53,5 +62,19 @@ h6 {
 }
 
 p {
-	color: rgb(26, 26, 26);
+	color: var(--text-color);
+}
+button {
+	/* border-radius: 2px; */
+	border: none;
+	background-color: rgba(0, 0, 0, 0);
+	border-left: 2px solid rgba(0, 0, 0, 0);
+	padding: 2px 12px 2px 2px;
+	margin: 1rem 0 1rem 0;
+	font-weight: 700;
+	color: var(--text-color);
+}
+
+button:hover {
+	border-left: 2px solid var(--text-color);
 }
