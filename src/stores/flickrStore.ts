@@ -8,6 +8,7 @@ export const photo: Writable<PhotoViewModel> = writable(emptyPhotoViewModel());
 export const photoset: Writable<PhotosetViewModel> = writable(emptyPhotosetViewModel());
 export const photosets: Writable<PhotosetViewModel[]> = writable([]);
 
+
 const fetchPhotoset = async (id: string): Promise<PhotosetViewModel> => {
     const url = `https://localhost:62727/api/flickr/photosets/${id}`;
     const res = await fetch(url);

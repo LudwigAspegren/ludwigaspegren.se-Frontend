@@ -9,14 +9,4 @@
 	}
 </script>
 
-<Navigation />
-<section>
-	<slot />
-</section>
-<Footer />
-
-<style>
-	section {
-		min-height: 100vh;
-	}
-</style>
+<slot />

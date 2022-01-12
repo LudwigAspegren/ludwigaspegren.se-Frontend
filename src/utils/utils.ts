@@ -20,14 +20,27 @@ export const emptyPhotosetViewModel = (): PhotosetViewModel => {
 }
 
 export const getPhoto = (id: String, list: Array<PhotoViewModel>): PhotoViewModel => {
-    let ps = list.find((p) => p.title == id);
+    let ps = list.find((p) => p.id == id);
     return ps ? ps : emptyPhotoViewModel();
 };
 export const getPhotoset = (id: String, list: Array<PhotosetViewModel>): PhotosetViewModel => {
-    let ps = list.find((p) => p.title == id);
+    let ps = list.find((p) => p.id == id);
     return ps ? ps : emptyPhotosetViewModel();
 };
 
+export const changePhotoQuality = (quality: string, photo: PhotoViewModel): PhotoViewModel => {
+    let suffix = `_${quality}.jpg`
+    let modifiedPhoto = {...photo}
+    modifiedPhoto.uri = photo.uri.replace('_b.jpg', suffix)
+    return (modifiedPhoto)
+}
+
+export let changeAlbumQuality = (quality: string, album: Array<PhotoViewModel>):Array<PhotoViewModel> => {
+    for (let [i, photo] of album.entries()) {
+        album[i] = changePhotoQuality(quality, photo)
+    }
+    return album;
+}
 
 type Article = PhotosetViewModel | PhotoViewModel;
 
