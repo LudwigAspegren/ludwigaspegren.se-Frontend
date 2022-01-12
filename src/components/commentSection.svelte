@@ -1,7 +1,6 @@
 <script lang="ts">
   import MessageForm from '$components/messageForm.svelte'
   import type MessageViewModel from '$types/message'
-  import { afterUpdate, beforeUpdate } from 'svelte'
   let messagess: MessageViewModel[] = []
   const handleSubmit = () => {
     messagess = [...messagess, message]
@@ -19,14 +18,6 @@
   let y: number
   let height: number
   let inHeight: number
-  beforeUpdate(() => {
-    console.log('updated')
-    // autoscroll = div && div.offsetHeight + div.scrollTop > div.scrollHeight - 20;x
-  })
-
-  afterUpdate(() => {
-    // if (autoscroll) div.scrollTo(0, div.scrollHeight);
-  })
 </script>
 
 <svelte:window bind:scrollY={y} bind:outerHeight={height} bind:innerHeight={inHeight} />
