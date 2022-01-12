@@ -10,7 +10,7 @@ export const photosets: Writable<PhotosetViewModel[]> = writable([]);
 
 
 const fetchPhotoset = async (id: string): Promise<PhotosetViewModel> => {
-    const url = `https://ludwigaspegren-api.azurewebsites.net/api/GetPhotoset/72157719745849615${id}`;
+    const url = `https://ludwigaspegren-api.azurewebsites.net/api/GetPhotoset/${id}`;
     const res = await fetch(url);
     const data: PhotosetViewModel = await res.json();
     return data;
