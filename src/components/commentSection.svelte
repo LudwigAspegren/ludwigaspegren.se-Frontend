@@ -15,6 +15,7 @@
   }
 
   let message: MessageViewModel
+  let div: any
   let y: number
   let height: number
   let inHeight: number
