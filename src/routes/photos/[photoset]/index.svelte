@@ -19,16 +19,16 @@
   const onScroll = () => {
     scrolling = true
   }
-  // setInterval(() => {
-  // 	if (scrolling) {
-  // 		scrolling = false;
-  // 		for (const ref of images) {
-  // 			if (ref != null) {
-  // 				ref.isInFrame();
-  // 			}
-  // 		}
-  // 	}
-  // }, 10);
+  setInterval(() => {
+    if (scrolling) {
+      scrolling = false
+      for (const ref of images) {
+        if (ref != null) {
+          ref.isInFrame()
+        }
+      }
+    }
+  }, 100)
   export let currentPhotoset: PhotosetViewModel
 </script>
 

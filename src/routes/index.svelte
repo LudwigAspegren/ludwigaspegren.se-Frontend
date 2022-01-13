@@ -1,23 +1,23 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
+  import { onMount } from 'svelte'
 
-  let moving = '';
+  let moving = ''
 
   onMount(() => {
-    document.body.style.overflow = 'hidden';
-    return () => (document.body.style.overflow = 'visible');
-  });
+    document.body.style.overflow = 'hidden'
+    return () => (document.body.style.overflow = 'scroll')
+  })
 
   interface link {
-    name: string;
-    url: string;
-    width: string;
-    itemRef?: HTMLAnchorElement;
+    name: string
+    url: string
+    width: string
+    itemRef?: HTMLAnchorElement
   }
 
-  let link: link | undefined;
-  let image: HTMLDivElement;
-  let heading: HTMLHeadingElement;
+  let link: link | undefined
+  let image: HTMLDivElement
+  let heading: HTMLHeadingElement
 
   let links: link[] = [
     {
@@ -35,31 +35,31 @@
       url: 'https://live.staticflickr.com/65535/51810035699_7c4c0f9264_k.jpg',
       width: '100vw'
     }
-  ];
+  ]
 
   const animate = async (e: Event) => {
-    console.log(e.type);
-    let currentRef = e.target as Element;
-    link = links.find((l) => currentRef.id === l.name);
+    console.log(e.type)
+    let currentRef = e.target as Element
+    link = links.find((l) => currentRef.id === l.name)
     for (const ref of links.map((l) => l.itemRef)) {
       if (e.type === 'mouseenter') {
         if (ref !== currentRef) {
-          ref?.classList.add('move-links');
+          ref?.classList.add('move-links')
         }
       } else {
-        ref?.classList.remove('move-links');
+        ref?.classList.remove('move-links')
       }
     }
 
     if (e.type === 'mouseenter') {
-      heading.classList.add('move-text');
-      image.classList.add('move-image');
+      heading.classList.add('move-text')
+      image.classList.add('move-image')
     } else {
-      heading.classList.remove('move-text');
-      image.classList.remove('move-image');
+      heading.classList.remove('move-text')
+      image.classList.remove('move-image')
     }
-    await new Promise((resolve) => setTimeout(resolve, 10000));
-  };
+    await new Promise((resolve) => setTimeout(resolve, 10000))
+  }
 </script>
 
 <svelte:head>
