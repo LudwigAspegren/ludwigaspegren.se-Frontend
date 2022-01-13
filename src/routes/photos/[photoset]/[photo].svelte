@@ -6,10 +6,10 @@
   import type PhotoViewModel from '$types/photoViewModel'
   import { getPhoto, getPhotoset, isEmpty } from '$utils/utils'
   import { get } from 'svelte/store'
-  export async function load({ page }: any) {
+  export async function load({ params }: any) {
     let ps = get(photosets)
-    let currentPhotoset = getPhotoset(page.params.photoset, ps)
-    let currentPhoto = getPhoto(page.params.photo, currentPhotoset.photos)
+    let currentPhotoset = getPhotoset(params.photoset, ps)
+    let currentPhoto = getPhoto(params.photo, currentPhotoset.photos)
     return { props: { currentPhotoset, currentPhoto } }
   }
 </script>

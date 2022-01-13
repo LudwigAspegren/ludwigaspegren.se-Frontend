@@ -1,24 +1,24 @@
 <script context="module" lang="ts">
-  import { page } from '$app/stores';
-  import Image from '$components/image.svelte';
-  import { photosets } from '$stores/flickrStore';
-  import type PhotosetViewModel from '$types/photosetViewModel';
-  import { changeAlbumQuality, getPhotoset, isEmpty } from '$utils/utils';
-  import { get } from 'svelte/store';
+  import { page } from '$app/stores'
+  import Image from '$components/image.svelte'
+  import { photosets } from '$stores/flickrStore'
+  import type PhotosetViewModel from '$types/photosetViewModel'
+  import { changeAlbumQuality, getPhotoset, isEmpty } from '$utils/utils'
+  import { get } from 'svelte/store'
 
-  export async function load({ page, session }: any) {
-    let ps = get(photosets);
-    let currentPhotoset = getPhotoset(page.params.photoset, ps);
-    return { props: { currentPhotoset } };
+  export async function load({ params }: any) {
+    let ps = get(photosets)
+    let currentPhotoset = getPhotoset(params.photoset, ps)
+    return { props: { currentPhotoset } }
   }
 </script>
 
 <script lang="ts">
-  let images: Image[] = [];
-  let scrolling = false;
+  let images: Image[] = []
+  let scrolling = false
   const onScroll = () => {
-    scrolling = true;
-  };
+    scrolling = true
+  }
   // setInterval(() => {
   // 	if (scrolling) {
   // 		scrolling = false;
@@ -29,7 +29,7 @@
   // 		}
   // 	}
   // }, 10);
-  export let currentPhotoset: PhotosetViewModel;
+  export let currentPhotoset: PhotosetViewModel
 </script>
 
 <svelte:window on:scroll={onScroll} />
@@ -46,7 +46,7 @@
   </div>
   <section>
     {#each changeAlbumQuality('c', currentPhotoset.photos) as photo, index}
-      <a sveltekit:prefetch href="{$page.path}/{photo.id}" class="items">
+      <a sveltekit:prefetch href="{$page.url}/{photo.id}" class="items">
         <Image height="50vh" {photo} bind:this={images[index]} />
       </a>
     {/each}
