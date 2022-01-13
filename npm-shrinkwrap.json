@@ -10,7 +10,7 @@
       "devDependencies": {
         "@sveltejs/adapter-auto": "next",
         "@sveltejs/adapter-static": "^1.0.0-next.26",
-        "@sveltejs/kit": "next",
+        "@sveltejs/kit": "^1.0.0-next.227",
         "@typescript-eslint/eslint-plugin": "^4.31.1",
         "@typescript-eslint/parser": "^4.31.1",
         "eslint": "^7.32.0",
@@ -23,6 +23,9 @@
         "svelte-preprocess": "^4.9.4",
         "tslib": "^2.3.1",
         "typescript": "^4.4.3"
+      },
+      "engines": {
+        "node": ">= 16.8.0"
       }
     },
     "node_modules/@babel/code-frame": {
@@ -280,13 +283,12 @@
       }
     },
     "node_modules/@sveltejs/kit": {
-      "version": "1.0.0-next.202",
-      "resolved": "https://registry.npmjs.org/@sveltejs/kit/-/kit-1.0.0-next.202.tgz",
-      "integrity": "sha512-rXmJ0FplkWvD1CaeCfejRYhOJYrlmeUm5Fkw7gIKDdWPQev5rqOhd9B9ZvRpq35oMqCAwaOfK+e5S6k+83feEQ==",
+      "version": "1.0.0-next.227",
+      "resolved": "https://registry.npmjs.org/@sveltejs/kit/-/kit-1.0.0-next.227.tgz",
+      "integrity": "sha512-AyTM51Mo01sV7Z3k0yEjKeSVfN84cXqu4+63FiSNMSvalIO9UfBYcKqfRZDtR/nPvw1zFNCC2HFAvRJGKIY8Xw==",
       "dev": true,
       "dependencies": {
-        "@sveltejs/vite-plugin-svelte": "^1.0.0-next.30",
-        "cheap-watch": "^1.0.4",
+        "@sveltejs/vite-plugin-svelte": "^1.0.0-next.32",
         "sade": "^1.7.4",
         "vite": "^2.7.2"
       },
@@ -690,15 +692,6 @@
       },
       "funding": {
         "url": "https://github.com/chalk/chalk?sponsor=1"
-      }
-    },
-    "node_modules/cheap-watch": {
-      "version": "1.0.4",
-      "resolved": "https://registry.npmjs.org/cheap-watch/-/cheap-watch-1.0.4.tgz",
-      "integrity": "sha512-QR/9FrtRL5fjfUJBhAKCdi0lSRQ3rVRRum3GF9wDKp2TJbEIMGhUEr2yU8lORzm9Isdjx7/k9S0DFDx+z5VGtw==",
-      "dev": true,
-      "engines": {
-        "node": ">=8"
       }
     },
     "node_modules/chokidar": {
@@ -2940,13 +2933,12 @@
       }
     },
     "@sveltejs/kit": {
-      "version": "1.0.0-next.202",
-      "resolved": "https://registry.npmjs.org/@sveltejs/kit/-/kit-1.0.0-next.202.tgz",
-      "integrity": "sha512-rXmJ0FplkWvD1CaeCfejRYhOJYrlmeUm5Fkw7gIKDdWPQev5rqOhd9B9ZvRpq35oMqCAwaOfK+e5S6k+83feEQ==",
+      "version": "1.0.0-next.227",
+      "resolved": "https://registry.npmjs.org/@sveltejs/kit/-/kit-1.0.0-next.227.tgz",
+      "integrity": "sha512-AyTM51Mo01sV7Z3k0yEjKeSVfN84cXqu4+63FiSNMSvalIO9UfBYcKqfRZDtR/nPvw1zFNCC2HFAvRJGKIY8Xw==",
       "dev": true,
       "requires": {
-        "@sveltejs/vite-plugin-svelte": "^1.0.0-next.30",
-        "cheap-watch": "^1.0.4",
+        "@sveltejs/vite-plugin-svelte": "^1.0.0-next.32",
         "sade": "^1.7.4",
         "vite": "^2.7.2"
       }
@@ -3204,12 +3196,6 @@
         "ansi-styles": "^4.1.0",
         "supports-color": "^7.1.0"
       }
-    },
-    "cheap-watch": {
-      "version": "1.0.4",
-      "resolved": "https://registry.npmjs.org/cheap-watch/-/cheap-watch-1.0.4.tgz",
-      "integrity": "sha512-QR/9FrtRL5fjfUJBhAKCdi0lSRQ3rVRRum3GF9wDKp2TJbEIMGhUEr2yU8lORzm9Isdjx7/k9S0DFDx+z5VGtw==",
-      "dev": true
     },
     "chokidar": {
       "version": "3.5.2",
