@@ -45,7 +45,6 @@
       placement[element] = randomPhotos[i]
     }
     placement[Math.floor(Math.random() * numberOfplacements)] = ''
-    console.log('hej')
   })
 </script>
 

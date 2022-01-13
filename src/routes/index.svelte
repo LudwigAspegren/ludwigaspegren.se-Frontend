@@ -38,7 +38,6 @@
   ]
 
   const animate = async (e: Event) => {
-    console.log(e.type)
     let currentRef = e.target as Element
     link = links.find((l) => currentRef.id === l.name)
     for (const ref of links.map((l) => l.itemRef)) {
@@ -99,7 +98,8 @@
     height: 100vh;
     pointer-events: none;
     opacity: 0;
-    transform: translate(0, -105vh);
+    transform-origin: center;
+    transform: translate(0, -110vh);
     z-index: 0;
   }
   .transition {
@@ -120,7 +120,7 @@
   }
   .move-image {
     opacity: 0.8;
-    transform: translate(0, -100vh);
+    transform: translate(0, -105vh);
   }
   img {
     pointer-events: none;
