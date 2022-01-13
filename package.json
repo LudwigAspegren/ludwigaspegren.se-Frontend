@@ -2,7 +2,7 @@
   "name": "new-svelte",
   "version": "0.0.1",
   "engines": {
-    "node": ">=17.0"
+    "node": ">= 16.8.0"
   },
   "scripts": {
     "dev": "svelte-kit dev",
