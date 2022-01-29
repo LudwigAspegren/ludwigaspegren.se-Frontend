@@ -1,9 +1,9 @@
 <script context="module" lang="ts">
-  import { page } from '$app/stores'
-  import Image from '$components/image.svelte'
+  import type Image from '$components/image.svelte'
   import { photosets } from '$stores/flickrStore'
   import type PhotosetViewModel from '$types/photosetViewModel'
-  import { changeAlbumQuality, getPhotoset, isEmpty } from '$utils/utils'
+  import { getPhotoset, isEmpty } from '$utils/utils'
+  import { onMount } from 'svelte'
   import { get } from 'svelte/store'
 
   export async function load({ params }: any) {
@@ -24,12 +24,51 @@
       scrolling = false
       for (const ref of images) {
         if (ref != null) {
-          ref.isInFrame()
         }
       }
     }
   }, 100)
   export let currentPhotoset: PhotosetViewModel
+
+  let imageUri: string
+  let imageTitle: string
+  let imageRef: HTMLImageElement
+  let observer: IntersectionObserver
+  onMount(() => {
+    if (!!window.IntersectionObserver) {
+      observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              imageUri = (entry.target as HTMLAnchorElement).id
+              imageTitle = (entry.target as HTMLAnchorElement).text
+              imageRef.style.animation = 'none'
+              window.requestAnimationFrame(function () {
+                imageRef.style.animation = ' opacity 600ms ease-in 0ms both'
+              })
+              imageRef = imageRef.console.log(imageRef)
+            }
+          }
+        },
+        { rootMargin: '400px', threshold: 0.5 }
+      )
+      document.querySelectorAll('.image-title').forEach((a) => {
+        observer.observe(a)
+      })
+    }
+  })
+
+  // let options = {
+  //   root: document.querySelector('#scrollArea'),
+  //   rootMargin: '0px',
+  //   threshold: 1.0
+  // }
+
+  // let observer = new IntersectionObserver(callback, options)
+  // let target = document.querySelector('#listItem')
+  // if (target !== null) {
+  //   observer.observe(target)
+  // }
 </script>
 
 <svelte:window on:scroll={onScroll} />
@@ -45,21 +84,37 @@
     </h1>
   </div>
   <section>
-    {#each changeAlbumQuality('c', currentPhotoset.photos) as photo, index}
-      <a sveltekit:prefetch href="{$page.url}/{photo.id}" class="items">
-        <Image height="50vh" {photo} bind:this={images[index]} />
-      </a>
-    {/each}
+    <div class="image">
+      <img src={imageUri} alt={imageTitle} bind:this={imageRef} />
+    </div>
+    <div class="image-column">
+      {#each currentPhotoset.photos as photo}
+        <a href="{currentPhotoset.id}/{photo.id}" id={photo.uri} class="image-title">
+          <h1>{photo.title}</h1>
+        </a>
+      {/each}
+    </div>
   </section>
 {/if}
 
 <style>
   section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    place-items: center;
+    grid-template-areas: '. images';
+  }
+  .image-column::-webkit-scrollbar {
+    display: none;
+  }
+  .image-column {
+    overflow-y: scroll;
+    height: 70vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
-    row-gap: 40vh;
+    grid-area: images;
   }
   .center {
     display: flex;
@@ -67,5 +122,19 @@
   }
   h1 {
     width: var(--content-width);
+  }
+  a {
+    padding: 50% 0 50% 0;
+    top: 0;
+  }
+  .image {
+    display: grid;
+    place-items: center;
+    height: 100%;
+  }
+
+  img {
+    opacity: 0.5;
+    width: 600px;
   }
 </style>
