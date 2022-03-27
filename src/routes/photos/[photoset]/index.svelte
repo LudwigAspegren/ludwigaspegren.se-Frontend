@@ -46,7 +46,7 @@
   </div>
   <section>
     {#each changeAlbumQuality('c', currentPhotoset.photos) as photo, index}
-      <a sveltekit:prefetch href="{$page.url}/{photo.id}" class="items">
+      <a sveltekit:prefetch href="{$page.url}/photo/{photo.id}" class="items">
         <Image height="50vh" {photo} bind:this={images[index]} />
       </a>
     {/each}

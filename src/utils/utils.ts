@@ -30,12 +30,13 @@ export const getPhotoset = (id: String, list: Array<PhotosetViewModel>): Photose
 
 export const changePhotoQuality = (quality: string, photo: PhotoViewModel): PhotoViewModel => {
     let suffix = `_${quality}.jpg`
-    let modifiedPhoto = {...photo}
-    modifiedPhoto.uri = photo.uri.replace('_b.jpg', suffix)
+    let modifiedPhoto = { ...photo }
+    // modifiedPhoto.uri = photo.uri.replace('_b.jpg', suffix)
+    modifiedPhoto.uri = photo.uri.slice(0, -6) + suffix
     return (modifiedPhoto)
 }
 
-export let changeAlbumQuality = (quality: string, album: Array<PhotoViewModel>):Array<PhotoViewModel> => {
+export let changeAlbumQuality = (quality: string, album: Array<PhotoViewModel>): Array<PhotoViewModel> => {
     for (let [i, photo] of album.entries()) {
         album[i] = changePhotoQuality(quality, photo)
     }
