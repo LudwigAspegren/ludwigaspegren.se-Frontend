@@ -60,7 +60,7 @@
       <h1>Ludwig Aspegrén</h1>
     {:else}
       <div class="child">
-        <a href="/photos/{object.album}/photo/{object.id}">
+        <a href="/photos/{object.album}/{object.id}">
           <img src={object?.uri} alt={object?.title} class={randomSelection(1, directions)[0]} />
         </a>
       </div>

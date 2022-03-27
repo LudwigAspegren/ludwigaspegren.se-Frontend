@@ -9,7 +9,6 @@
     let ps = get(photosets)
     let currentPhotoset = getPhotoset(params.photoset, ps)
     let currentPhoto = changePhotoQuality('k', getPhoto(params.photo, currentPhotoset.photos))
-    // let currentPhoto = getPhoto(params.photo, currentPhotoset.photos)
     return { props: { currentPhotoset, currentPhoto } }
   }
 </script>
