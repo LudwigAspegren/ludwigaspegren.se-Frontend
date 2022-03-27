@@ -7,11 +7,9 @@
   export async function load({ params, session }: any) {
     photosets.set(session.response)
     let ps = get(photosets)
-    console.log(ps)
     let currentPhotoset = getPhotoset(params.photoset, ps)
-    let currentPhoto = changePhotoQuality('3k', getPhoto(params.photo, currentPhotoset.photos))
+    let currentPhoto = changePhotoQuality('k', getPhoto(params.photo, currentPhotoset.photos))
     // let currentPhoto = getPhoto(params.photo, currentPhotoset.photos)
-    console.log(currentPhoto)
     return { props: { currentPhotoset, currentPhoto } }
   }
 </script>
@@ -20,6 +18,23 @@
   export let currentPhoto: PhotoViewModel
   onMount(() => {
     document.body.style.overflow = 'hidden'
+    let img = document.querySelector('img')
+    if (img != null) img.addEventListener('load', removeLoadingClass)
+    function removeLoadingClass() {
+      if (img != null) {
+        img.classList.remove('loading')
+        img.classList.add('fade-in')
+      }
+    }
+    // window.onload = function () {
+    //   let img = document.querySelector('img')
+    //   if (img != null) {
+    //     img.classList.add('js-loading')
+    //     img.onload = function () {
+    //       if (img != null) img.style.remove('js-loading')
+    //     }
+    //   }
+    // }
     return () => (document.body.style.overflow = 'scroll')
   })
 </script>
@@ -32,12 +47,15 @@
   {#if !isEmpty(currentPhoto)}
     <!-- svelte-ignore a11y-invalid-attribute -->
     <a href="javascript:history.back()">
-      <img src={currentPhoto.uri} alt={currentPhoto.title} />
+      <img class="loading" src={currentPhoto.uri} alt={currentPhoto.title} loading="lazy" />
     </a>
   {/if}
 </section>
 
 <style>
+  .loading {
+    visibility: hidden;
+  }
   section {
     position: fixed;
     display: grid;
