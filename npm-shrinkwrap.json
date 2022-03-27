@@ -266,9 +266,9 @@
       }
     },
     "node_modules/@sveltejs/adapter-static": {
-      "version": "1.0.0-next.26",
-      "resolved": "https://registry.npmjs.org/@sveltejs/adapter-static/-/adapter-static-1.0.0-next.26.tgz",
-      "integrity": "sha512-LXR0HkPygZ+m9wJhFqbYWbJ0jquhgUK6vL/8AwnqbAZGGtQFloMpf49WOANk7MiLBeY6L97W5jPLSxHiDW3T0Q==",
+      "version": "1.0.0-next.29",
+      "resolved": "https://registry.npmjs.org/@sveltejs/adapter-static/-/adapter-static-1.0.0-next.29.tgz",
+      "integrity": "sha512-0hjGnfT3BRyoHnzJ2w0/xL+xICRpKneDTm45ZzggiRrc0r71WJfF6toGeg8N4QUQnj8EJ3Itm453gsS1kt7VUQ==",
       "dev": true,
       "dependencies": {
         "tiny-glob": "^0.2.9"
@@ -284,9 +284,9 @@
       }
     },
     "node_modules/@sveltejs/kit": {
-      "version": "1.0.0-next.292",
-      "resolved": "https://registry.npmjs.org/@sveltejs/kit/-/kit-1.0.0-next.292.tgz",
-      "integrity": "sha512-sWLuN7/rOsV3xX0VtT562PXhGqkuU9np03Gv3k0v+MKh+NW59TUGgQTWIe0LP6ImHiZaMt0Uaw4oYfIn0wsTmQ==",
+      "version": "1.0.0-next.303",
+      "resolved": "https://registry.npmjs.org/@sveltejs/kit/-/kit-1.0.0-next.303.tgz",
+      "integrity": "sha512-WdxDc8OiF1WEd/bEza7CBdzA+3qIcCi1GKBj/gieKX9I3N8iDJt/Cg2POrLo9wQoJ47nZcAd1eOhfr7XEX1aIQ==",
       "dev": true,
       "dependencies": {
         "@sveltejs/vite-plugin-svelte": "^1.0.0-next.32",
@@ -1880,9 +1880,9 @@
       }
     },
     "node_modules/minimist": {
-      "version": "1.2.5",
-      "resolved": "https://registry.npmjs.org/minimist/-/minimist-1.2.5.tgz",
-      "integrity": "sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==",
+      "version": "1.2.6",
+      "resolved": "https://registry.npmjs.org/minimist/-/minimist-1.2.6.tgz",
+      "integrity": "sha512-Jsjnk4bw3YJqYzbdyBiNsPWHPfO++UGG749Cxs6peCu5Xg4nrena6OVxOYxrQTqww0Jmwt+Ref8rggumkTLz9Q==",
       "dev": true
     },
     "node_modules/mkdirp": {
@@ -3310,9 +3310,9 @@
       }
     },
     "@sveltejs/adapter-static": {
-      "version": "1.0.0-next.26",
-      "resolved": "https://registry.npmjs.org/@sveltejs/adapter-static/-/adapter-static-1.0.0-next.26.tgz",
-      "integrity": "sha512-LXR0HkPygZ+m9wJhFqbYWbJ0jquhgUK6vL/8AwnqbAZGGtQFloMpf49WOANk7MiLBeY6L97W5jPLSxHiDW3T0Q==",
+      "version": "1.0.0-next.29",
+      "resolved": "https://registry.npmjs.org/@sveltejs/adapter-static/-/adapter-static-1.0.0-next.29.tgz",
+      "integrity": "sha512-0hjGnfT3BRyoHnzJ2w0/xL+xICRpKneDTm45ZzggiRrc0r71WJfF6toGeg8N4QUQnj8EJ3Itm453gsS1kt7VUQ==",
       "dev": true,
       "requires": {
         "tiny-glob": "^0.2.9"
@@ -3328,9 +3328,9 @@
       }
     },
     "@sveltejs/kit": {
-      "version": "1.0.0-next.292",
-      "resolved": "https://registry.npmjs.org/@sveltejs/kit/-/kit-1.0.0-next.292.tgz",
-      "integrity": "sha512-sWLuN7/rOsV3xX0VtT562PXhGqkuU9np03Gv3k0v+MKh+NW59TUGgQTWIe0LP6ImHiZaMt0Uaw4oYfIn0wsTmQ==",
+      "version": "1.0.0-next.303",
+      "resolved": "https://registry.npmjs.org/@sveltejs/kit/-/kit-1.0.0-next.303.tgz",
+      "integrity": "sha512-WdxDc8OiF1WEd/bEza7CBdzA+3qIcCi1GKBj/gieKX9I3N8iDJt/Cg2POrLo9wQoJ47nZcAd1eOhfr7XEX1aIQ==",
       "dev": true,
       "requires": {
         "@sveltejs/vite-plugin-svelte": "^1.0.0-next.32",
@@ -4439,9 +4439,9 @@
       }
     },
     "minimist": {
-      "version": "1.2.5",
-      "resolved": "https://registry.npmjs.org/minimist/-/minimist-1.2.5.tgz",
-      "integrity": "sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==",
+      "version": "1.2.6",
+      "resolved": "https://registry.npmjs.org/minimist/-/minimist-1.2.6.tgz",
+      "integrity": "sha512-Jsjnk4bw3YJqYzbdyBiNsPWHPfO++UGG749Cxs6peCu5Xg4nrena6OVxOYxrQTqww0Jmwt+Ref8rggumkTLz9Q==",
       "dev": true
     },
     "mkdirp": {
