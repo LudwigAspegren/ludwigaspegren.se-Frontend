@@ -2,7 +2,6 @@
 import preprocess from 'svelte-preprocess';
 import adapter from '@sveltejs/adapter-static';
 import path from 'path'
-import { createWhile } from 'typescript';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -23,7 +22,7 @@ const config = {
 			// This can be false if you're using a fallback (i.e. SPA mode)
 			default: true,
 			crawl: true,
-			
+
 		},
 		vite: {
 			resolve: {
