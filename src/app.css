@@ -6,6 +6,8 @@ a {
 }
 body {
   overflow: scroll;
+  min-height: 100vh;
+  margin: 0px;
 }
 p {
   font-size: 0.75rem;
@@ -30,10 +32,6 @@ h3 {
   --text-color: rgb(40, 40, 40);
 }
 
-body {
-  min-height: 100vh;
-  margin: 0;
-}
 h1 {
   font-weight: 200;
   font-size: 2rem;
