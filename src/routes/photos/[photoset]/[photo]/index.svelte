@@ -16,24 +16,18 @@
 <script lang="ts">
   export let currentPhoto: PhotoViewModel
   onMount(() => {
-    document.body.style.overflow = 'hidden'
-    let img = document.querySelector('img')
-    if (img != null) img.addEventListener('load', removeLoadingClass)
-    function removeLoadingClass() {
-      if (img != null) {
-        img.classList.remove('loading')
-        img.classList.add('fade-in')
-      }
+    const removeLoadingClass = () => {
+      img?.classList.remove('loading')
+      img?.classList.add('fade-in')
     }
-    // window.onload = function () {
-    //   let img = document.querySelector('img')
-    //   if (img != null) {
-    //     img.classList.add('js-loading')
-    //     img.onload = function () {
-    //       if (img != null) img.style.remove('js-loading')
-    //     }
-    //   }
-    // }
+
+    let img = document.querySelector('img')
+    if (img != null) {
+      img.addEventListener('load', removeLoadingClass)
+      if (img.complete) img.classList.remove('loading')
+    }
+
+    document.body.style.overflow = 'hidden'
     return () => (document.body.style.overflow = 'scroll')
   })
 </script>
