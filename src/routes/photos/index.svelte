@@ -2,7 +2,7 @@
   import { photosets } from '$stores/flickrStore'
   import type PhotoViewModel from '$types/photoViewModel'
   import { changeAlbumQuality } from '$utils/utils'
-  import { onMount } from 'svelte'
+  import { onMount } from 'svelte/internal'
   import { get } from 'svelte/store'
 
   const randomSelection = <T extends unknown>(n: number, originalArray: Array<T>): Array<T> => {

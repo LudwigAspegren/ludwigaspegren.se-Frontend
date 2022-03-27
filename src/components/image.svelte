@@ -1,6 +1,6 @@
 <script lang="ts" context="module">
   import type PhotoViewModel from '$types/photoViewModel'
-  import { onMount } from 'svelte'
+  import { onMount } from 'svelte/internal'
 </script>
 
 <script lang="ts">

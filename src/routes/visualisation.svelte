@@ -1,6 +1,6 @@
 <script lang="ts">
   import { page } from '$app/stores'
-  import { onMount } from 'svelte'
+  import { onMount } from 'svelte/internal'
   onMount(() => {
     document.body.style.overflow = 'hidden'
     return () => (document.body.style.overflow = 'scroll')

@@ -2,7 +2,7 @@
   import { photosets } from '$stores/flickrStore'
   import type PhotoViewModel from '$types/photoViewModel'
   import { changePhotoQuality, getPhoto, getPhotoset, isEmpty } from '$utils/utils'
-  import { onMount } from 'svelte'
+  import { onMount } from 'svelte/internal'
   import { get } from 'svelte/store'
   export async function load({ params, session }: any) {
     photosets.set(session.response)
