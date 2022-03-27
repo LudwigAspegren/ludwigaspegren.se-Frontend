@@ -13,9 +13,10 @@ const config = {
 		// hydrate the <div id="svelte"> element in src/app.html
 		adapter: adapter({
 			// default options are shown
+			trailingSlash: 'always',
 			pages: 'build',
 			assets: 'build',
-			fallback: 'index.html'
+			fallback: null
 		}),
 		vite: {
 			resolve: {
