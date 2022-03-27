@@ -10,14 +10,14 @@ const config = {
 	preprocess: preprocess(),
 
 	kit: {
-		
 		// hydrate the <div id="svelte"> element in src/app.html
 		adapter: adapter({
 			// default options are shown
+			trailingSlash: 'always',
 			path: "build",
 			pages: 'build',
 			assets: 'build',
-			fallback: null
+			fallback: 'index.html'
 		}),
 		vite: {
 			resolve: {
