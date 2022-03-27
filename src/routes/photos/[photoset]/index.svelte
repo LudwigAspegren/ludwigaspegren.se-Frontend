@@ -15,19 +15,19 @@
 <script lang="ts">
   let images: Image[] = []
   let scrolling = false
-  const onScroll = () => {
-    scrolling = true
-  }
-  setInterval(() => {
-    if (scrolling) {
-      scrolling = false
-      for (const ref of images) {
-        if (ref != null) {
-          ref.isInFrame()
-        }
-      }
-    }
-  }, 100)
+  // const onScroll = () => {
+  //   scrolling = true
+  // }
+  // setInterval(() => {
+  //   if (scrolling) {
+  //     scrolling = false
+  //     for (const ref of images) {
+  //       if (ref != null) {
+  //         ref.isInFrame()
+  //       }
+  //     }
+  //   }
+  // }, 100)
   export let currentPhotoset: PhotosetViewModel
 </script>
 
