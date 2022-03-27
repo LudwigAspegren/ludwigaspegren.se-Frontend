@@ -1,5 +1,4 @@
 <script context="module" lang="ts">
-  import { page } from '$app/stores'
   import Image from '$components/image.svelte'
   import { photosets } from '$stores/flickrStore'
   import type PhotosetViewModel from '$types/photosetViewModel'
@@ -46,7 +45,7 @@
   </div>
   <section>
     {#each changeAlbumQuality('c', currentPhotoset.photos) as photo, index}
-      <a href="{$page.url}/{photo.id}" class="items">
+      <a href="{currentPhotoset.id}/{photo.id}" class="items">
         <Image height="50vh" {photo} bind:this={images[index]} />
       </a>
     {/each}
