@@ -57,7 +57,7 @@ h6 {
 
 .fade-in {
   animation-fill-mode: backwards;
-  animation: clear ease-in var(--transition-long);
+  animation: clear ease-out var(--transition-long);
 }
 
 p {
