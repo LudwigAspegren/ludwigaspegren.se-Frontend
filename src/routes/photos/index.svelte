@@ -1,7 +1,7 @@
 <script lang="ts">
   import { photosets } from '$stores/flickrStore'
   import type PhotoViewModel from '$types/photoViewModel'
-  import { changeAlbumQuality } from '$utils/utils'
+  import { changeAlbumQuality, qualities } from '$utils/utils'
   import { onMount } from 'svelte/internal'
   import { get } from 'svelte/store'
 
@@ -39,7 +39,7 @@
   let randomPhotos: Array<PhotoViewModel | string>
   onMount(() => {
     randomPhotos = randomSelection(numberOfPhotos, photos)
-    randomPhotos = changeAlbumQuality('t', randomPhotos as Array<PhotoViewModel>)
+    randomPhotos = changeAlbumQuality(qualities.tiny, randomPhotos as Array<PhotoViewModel>)
     randomPositions = randomSelection(numberOfPhotos, positions)
     for (const [i, element] of randomPositions.entries()) {
       placement[element] = randomPhotos[i]

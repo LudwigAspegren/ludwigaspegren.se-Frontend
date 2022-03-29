@@ -2,7 +2,7 @@
   import Image from '$components/image.svelte'
   import { photosets } from '$stores/flickrStore'
   import type PhotosetViewModel from '$types/photosetViewModel'
-  import { changeAlbumQuality, getPhotoset, isEmpty } from '$utils/utils'
+  import { changeAlbumQuality, getPhotoset, isEmpty, qualities } from '$utils/utils'
   import { get } from 'svelte/store'
 
   export async function load({ params }: any) {
@@ -44,7 +44,7 @@
     </h1>
   </div>
   <section>
-    {#each changeAlbumQuality('c', currentPhotoset.photos) as photo, index}
+    {#each changeAlbumQuality(qualities.small, currentPhotoset.photos) as photo, index}
       <a href="{currentPhotoset.id}/{photo.id}" class="items">
         <Image height="50vh" {photo} bind:this={images[index]} />
       </a>

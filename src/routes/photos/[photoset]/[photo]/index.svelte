@@ -1,7 +1,14 @@
 <script context="module" lang="ts">
   import { photosets } from '$stores/flickrStore'
   import type PhotoViewModel from '$types/photoViewModel'
-  import { changePhotoQuality, getPhoto, getPhotoset, isEmpty } from '$utils/utils'
+  import {
+    changePhotoQuality,
+    checkImgLoading,
+    getPhoto,
+    getPhotoset,
+    isEmpty,
+    qualities
+  } from '$utils/utils'
   import { onMount } from 'svelte/internal'
   import { get } from 'svelte/store'
   export async function load({ params, session }: any) {
@@ -40,7 +47,12 @@
   {#if !isEmpty(currentPhoto)}
     <!-- svelte-ignore a11y-invalid-attribute -->
     <a href="javascript:history.back()">
-      <img class="loading" src={currentPhoto.uri} alt={currentPhoto.title} loading="lazy" />
+      <img
+        class="loading"
+        src={changePhotoQuality(qualities.medium, currentPhoto).uri}
+        alt={currentPhoto.title}
+        loading="lazy"
+      />
     </a>
   {/if}
 </section>

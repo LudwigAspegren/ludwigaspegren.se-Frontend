@@ -48,3 +48,10 @@ type Article = PhotosetViewModel | PhotoViewModel;
 export function isEmpty<T>(obj: T) {
     return Object.keys(obj).length === 0;
 }
+
+export enum qualities {
+    tiny = "t",
+    small = "z",
+    medium = "b",
+    large = "k"
+}
