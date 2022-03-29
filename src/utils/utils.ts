@@ -54,3 +54,15 @@ export enum qualities {
     medium = "b",
     large = "k"
 }
+
+export const checkImgLoading = (img: HTMLImageElement) => {
+    const removeLoadingClass = () => {
+        img.classList.remove('loading')
+        img.classList.add('fade-in')
+    }
+    img.addEventListener('load', removeLoadingClass)
+    if (img.complete) img.classList.remove('loading')
+
+    document.body.style.overflow = 'hidden'
+    return () => (document.body.style.overflow = 'scroll')
+}

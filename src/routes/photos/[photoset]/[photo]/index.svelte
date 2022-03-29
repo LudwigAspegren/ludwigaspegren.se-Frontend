@@ -23,17 +23,8 @@
 <script lang="ts">
   export let currentPhoto: PhotoViewModel
   onMount(() => {
-    const removeLoadingClass = () => {
-      img?.classList.remove('loading')
-      img?.classList.add('fade-in')
-    }
-
-    let img = document.querySelector('img')
-    if (img != null) {
-      img.addEventListener('load', removeLoadingClass)
-      if (img.complete) img.classList.remove('loading')
-    }
-
+    let img = document.body.querySelector('img')
+    if (img != null) checkImgLoading(img)
     document.body.style.overflow = 'hidden'
     return () => (document.body.style.overflow = 'scroll')
   })
