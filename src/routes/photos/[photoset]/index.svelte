@@ -31,7 +31,7 @@
   export let currentPhotoset: PhotosetViewModel
 </script>
 
-<svelte:window on:scroll={onScroll} />
+<!-- <svelte:window on:scroll={onScroll} /> -->
 
 <svelte:head>
   <title>{currentPhotoset.title}</title>

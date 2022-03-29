@@ -43,7 +43,6 @@ export let changeAlbumQuality = (quality: string, album: Array<PhotoViewModel>):
     return album;
 }
 
-type Article = PhotosetViewModel | PhotoViewModel;
 
 export function isEmpty<T>(obj: T) {
     return Object.keys(obj).length === 0;
