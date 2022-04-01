@@ -1,5 +1,5 @@
 <script context="module" lang="ts">
-  import Image from '$components/image.svelte'
+  import ImageModule from '$components/imageModule.svelte'
   import { photosets } from '$stores/flickrStore'
   import type PhotosetViewModel from '$types/photosetViewModel'
   import { changeAlbumQuality, getPhotoset, isEmpty, qualities } from '$utils/utils'
@@ -13,25 +13,29 @@
 </script>
 
 <script lang="ts">
-  let images: Image[] = []
+  let images: ImageModule[] = []
   let scrolling = false
-  // const onScroll = () => {
-  //   scrolling = true
-  // }
-  // setInterval(() => {
-  //   if (scrolling) {
-  //     scrolling = false
-  //     for (const ref of images) {
-  //       if (ref != null) {
-  //         ref.isInFrame()
-  //       }
-  //     }
-  //   }
-  // }, 100)
+  const onScroll = () => {
+    scrolling = true
+  }
+  setInterval(() => {
+    if (scrolling) {
+      scrolling = false
+      for (const ref of images) {
+        if (ref != null) {
+          ref.isInFrame()
+          console.log('jhe')
+        }
+      }
+    }
+  }, 100)
   export let currentPhotoset: PhotosetViewModel
+  const isEven = (n: number) => {
+    return n % 2 === 0
+  }
 </script>
 
-<!-- <svelte:window on:scroll={onScroll} /> -->
+<svelte:window on:scroll={onScroll} />
 
 <svelte:head>
   <title>{currentPhotoset.title}</title>
@@ -44,9 +48,9 @@
     </h1>
   </div>
   <section>
-    {#each changeAlbumQuality(qualities.small, currentPhotoset.photos) as photo, index}
+    {#each changeAlbumQuality(qualities.medium, currentPhotoset.photos) as photo, index}
       <a href="{currentPhotoset.id}/{photo.id}" class="items">
-        <Image height="50vh" {photo} bind:this={images[index]} />
+        <ImageModule height="50vh" {photo} bind:this={images[index]} even={isEven(index)} />
       </a>
     {/each}
   </section>
