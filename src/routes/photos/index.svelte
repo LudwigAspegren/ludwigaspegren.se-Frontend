@@ -98,7 +98,7 @@
   }
   @keyframes glide-up {
     from {
-      transform: translate(0, 15px);
+      transform: translate(0, 5px);
     }
     to {
       transform: translate(0, 0);
@@ -106,7 +106,7 @@
   }
   @keyframes glide-down {
     from {
-      transform: translate(0, -15px);
+      transform: translate(0, -5px);
     }
     to {
       transform: translate(0, 0);
@@ -114,7 +114,7 @@
   }
   @keyframes glide-left {
     from {
-      transform: translate(-15px, 0);
+      transform: translate(-5px, 0);
     }
     to {
       transform: translate(0, 0);
@@ -122,7 +122,7 @@
   }
   @keyframes glide-right {
     from {
-      transform: translate(15px, 0);
+      transform: translate(5px, 0);
     }
     to {
       transform: translate(0, 0);

@@ -5,7 +5,6 @@
 
 <script lang="ts">
   export let photo: PhotoViewModel
-  export let height: string
   let scale = 1
 
   $: animation = 'img-zoom-in'
@@ -48,7 +47,7 @@
 </script>
 
 {#if photo}
-  <div class="box" style="height:{height}; transform:scale({scale})">
+  <div class="box" style="transform:scale({scale})">
     <img src={photo.uri} alt={photo.title} bind:this={itemRef} class="zoom {animation} fade-in" />
   </div>
 {/if}
@@ -63,7 +62,7 @@
   .box {
     /* overflow: hidden; */
     display: inline-block;
-    height: 70vh;
+    height: 100%;
     transition: transform cubic-bezier(0.37, 0, 0.63, 1) 10ms;
   }
   .zoom {
