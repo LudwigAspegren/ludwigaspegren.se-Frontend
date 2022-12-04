@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { photosets } from '$stores/flickrStore'
   import type PhotoViewModel from '$types/photoViewModel'
   import { changeAlbumQuality, qualities } from '$utils/utils'
   import { onMount } from 'svelte/internal'
-  import { get } from 'svelte/store'
+  import type { PageData } from './$types'
+  export let data: PageData
 
   const randomSelection = <T extends unknown>(n: number, originalArray: Array<T>): Array<T> => {
     let random: Array<T> = []
@@ -31,7 +31,7 @@
 
   let directions: Array<string> = ['glide-up', 'glide-down', 'glide-left', 'glide-right']
 
-  let photos: PhotoViewModel[] = get(photosets)
+  let photos: PhotoViewModel[] = data.photosets
     .map((ps) => {
       return ps.photos
     })
@@ -60,7 +60,7 @@
       <h1>Ludwig Aspegrén</h1>
     {:else}
       <div class="child">
-        <a href="/photos/{object.album}/{object.id}">
+        <a href="/photos/{object.id}">
           <img src={object?.uri} alt={object?.title} class={randomSelection(1, directions)[0]} />
         </a>
       </div>

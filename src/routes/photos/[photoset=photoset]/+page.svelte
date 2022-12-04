@@ -1,19 +1,28 @@
 <script context="module" lang="ts">
-  import ImageModule from '$components/image.svelte'
-  import { photosets } from '$stores/flickrStore'
-  import type PhotosetViewModel from '$types/photosetViewModel'
-  import { changeAlbumQuality, getPhotoset, isEmpty, qualities } from '$utils/utils'
-  import { get } from 'svelte/store'
+  // throw new Error(
+  //   '@migration task: Check code was safely removed (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292722)'
+  // )
 
-  export async function load({ params }: any) {
-    let ps = get(photosets)
-    let currentPhotoset = getPhotoset(params.photoset, ps)
-    return { props: { currentPhotoset } }
-  }
+  // import ImageModule from '$components/image.svelte'
+  // import { photosets } from '$stores/flickrStore'
+  // import type PhotosetViewModel from '$types/photosetViewModel'
+  // import { changeAlbumQuality, getPhotoset, isEmpty, qualities } from '$utils/utils'
+  // import { get } from 'svelte/store'
+
+  // export async function load({ params }: any) {
+  //   let ps = get(photosets)
+  //   let currentPhotoset = getPhotoset(params.photoset, ps)
+  //   return { props: { currentPhotoset } }
+  // }
 </script>
 
 <script lang="ts">
-  let images: ImageModule[] = []
+  // throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
+  import Image from '$components/image.svelte'
+  import { changeAlbumQuality, isEmpty, qualities } from '$utils/utils'
+  import type { PageData } from './$types'
+  export let data: PageData
+  let images: Image[] = []
   let scrolling = false
   const onScroll = () => {
     scrolling = true
@@ -28,28 +37,27 @@
       }
     }
   }, 100)
-  export let currentPhotoset: PhotosetViewModel
 </script>
 
 <svelte:window on:scroll={onScroll} />
 
 <svelte:head>
-  <title>{currentPhotoset.title}</title>
+  <title>{data.currentPhotoset.title}</title>
 </svelte:head>
 
-{#if !isEmpty(currentPhotoset)}
+{#if !isEmpty(data.currentPhotoset)}
   <div class="center">
     <h1 style="translate">
-      {currentPhotoset.title}
+      {data.currentPhotoset.title}
     </h1>
     <h1 class="outlined">
-      {currentPhotoset.title}
+      {data.currentPhotoset.title}
     </h1>
   </div>
   <section>
-    {#each changeAlbumQuality(qualities.medium, currentPhotoset.photos) as photo, index}
-      <a href="{currentPhotoset.id}/{photo.id}" class="items" id="image-{index}">
-        <ImageModule {photo} bind:this={images[index]} />
+    {#each changeAlbumQuality(qualities.medium, data.currentPhotoset.photos) as photo, index}
+      <a href="/photos/{photo.id}" class="items" id="image-{index}">
+        <Image {photo} bind:this={images[index]} />
       </a>
     {/each}
     <div id="div-1" />

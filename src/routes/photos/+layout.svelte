@@ -1,4 +1,4 @@
-<script context="module" lang="ts">
+<script lang="ts">
   import Footer from '$components/footer.svelte'
   import Navigation from '$components/navigation.svelte'
 </script>

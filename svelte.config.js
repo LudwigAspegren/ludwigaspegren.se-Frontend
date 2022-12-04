@@ -10,6 +10,14 @@ const config = {
 	preprocess: preprocess(),
 	kit: {
 		// hydrate the <div id="svelte"> element in src/app.html
+		alias: {
+			$utils: path.resolve('src/utils'),
+			$services: path.resolve('src/services'),
+			$stores: path.resolve('src/stores'),
+			$components: path.resolve('src/components'),
+			$types: path.resolve('src/types'),
+
+		},
 		adapter: adapter({
 			// default options are shown
 			trailingSlash: 'always',
@@ -17,25 +25,6 @@ const config = {
 			assets: 'build',
 			fallback: null
 		}),
-		prerender: {
-			// This can be false if you're using a fallback (i.e. SPA mode)
-			default: true,
-			crawl: true,
-
-		},
-		vite: {
-			resolve: {
-				alias: {
-					$utils: path.resolve('src/utils'),
-					$services: path.resolve('src/services'),
-					$stores: path.resolve('src/stores'),
-					$components: path.resolve('src/components'),
-					$types: path.resolve('src/types'),
-
-				}
-			}
-
-		}
 	}
 };
 

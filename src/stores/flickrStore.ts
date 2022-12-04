@@ -23,7 +23,6 @@ export const fetchAll = async (ids: string[]) => {
     }
     const promises = Promise.all(requests)
     const unpackedPhotosets = (await promises).map(r => r)
-    photosets.set(unpackedPhotosets);
     return unpackedPhotosets
 }
 

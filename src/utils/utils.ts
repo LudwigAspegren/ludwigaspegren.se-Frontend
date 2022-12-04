@@ -23,6 +23,7 @@ export const getPhoto = (id: String, list: Array<PhotoViewModel>): PhotoViewMode
     let ps = list.find((p) => p.id == id);
     return ps ? ps : emptyPhotoViewModel();
 };
+
 export const getPhotoset = (id: String, list: Array<PhotosetViewModel>): PhotosetViewModel => {
     let ps = list.find((p) => p.id == id);
     return ps ? ps : emptyPhotosetViewModel();
