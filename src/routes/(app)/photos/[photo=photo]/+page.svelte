@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { afterNavigate, goto } from '$app/navigation'
   import { changePhotoQuality, checkImgLoading, isEmpty, qualities } from '$utils/utils'
   import { onMount } from 'svelte'
   import type { PageData } from './$types'
@@ -11,6 +12,21 @@
     document.body.style.overflow = 'hidden'
     return () => (document.body.style.overflow = 'scroll')
   })
+  const goBack = () => {
+    if (browser) {
+      goto(previousPage, { replaceState: false })
+    }
+  }
+
+  import { browser } from '$app/environment'
+  import { base } from '$app/paths'
+
+  let previousPage: string = base
+  console.log(base)
+
+  afterNavigate(({ from }) => {
+    previousPage = from?.url.pathname || '/archive'
+  })
 </script>
 
 <svelte:head>
@@ -20,7 +36,7 @@
 <section>
   {#if !isEmpty(data.currentPhoto)}
     <!-- svelte-ignore a11y-invalid-attribute -->
-    <a href="javascript:history.back()">
+    <a href="#" on:click={goBack}>
       <img
         class="loading"
         src={changePhotoQuality(qualities.medium, data.currentPhoto).uri}

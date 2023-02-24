@@ -6,3 +6,4 @@ export const load: PageLoad = async ({ params, parent }) => {
   let currentPhotoset = getPhotoset(params.photoset, data.photosets)
   return { currentPhotoset }
 }
+

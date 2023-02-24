@@ -1,21 +1,3 @@
-<script context="module" lang="ts">
-  // throw new Error(
-  //   '@migration task: Check code was safely removed (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292722)'
-  // )
-
-  // import ImageModule from '$components/image.svelte'
-  // import { photosets } from '$stores/flickrStore'
-  // import type PhotosetViewModel from '$types/photosetViewModel'
-  // import { changeAlbumQuality, getPhotoset, isEmpty, qualities } from '$utils/utils'
-  // import { get } from 'svelte/store'
-
-  // export async function load({ params }: any) {
-  //   let ps = get(photosets)
-  //   let currentPhotoset = getPhotoset(params.photoset, ps)
-  //   return { props: { currentPhotoset } }
-  // }
-</script>
-
 <script lang="ts">
   // throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
   import Image from '$components/image.svelte'
@@ -69,6 +51,9 @@
 <style>
   a {
     display: inline-flex;
+  }
+  a:hover {
+    font-weight: 600;
   }
   section {
     display: grid;

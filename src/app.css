@@ -1,13 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 a {
   color: var(--text-color);
   text-decoration: none;
   font-size: 1rem;
 }
 body {
-  overflow: scroll;
   min-height: 100vh;
-  margin: 0px;
+  box-sizing:border-box;
+  overflow: auto;
+
 }
 p {
   font-size: 0.75rem;
