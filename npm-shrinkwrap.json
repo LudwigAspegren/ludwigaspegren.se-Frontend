@@ -17,13 +17,13 @@
         "eslint": "^8.24.0",
         "eslint-config-prettier": "^8.3.0",
         "eslint-plugin-svelte3": "^4.0.0",
-        "postcss": "^8.4.19",
+        "postcss": "^8.4.21",
         "prettier": "^2.4.1",
         "prettier-plugin-svelte": "^2.4.0",
         "svelte": "^3.44.0",
         "svelte-check": "^2.2.6",
         "svelte-preprocess": "^4.10.7",
-        "tailwindcss": "^3.2.4",
+        "tailwindcss": "^3.2.7",
         "tslib": "^2.3.1",
         "typescript": "^4.4.3",
         "vite": "^4.0.0"
@@ -1290,6 +1290,12 @@
       "integrity": "sha512-n94yQo4LI3w7erwf84mhRUkUJfhLoCZiLyoOZ/QFsDbcWNZePrLwbQpvZBUG2TNxwV3VjCKPxkiiQA6pe3TrTA==",
       "dev": true
     },
+    "node_modules/didyoumean": {
+      "version": "1.2.2",
+      "resolved": "https://registry.npmjs.org/didyoumean/-/didyoumean-1.2.2.tgz",
+      "integrity": "sha512-gxtyfqMg7GKyhQmb056K7M3xszy/myH8w+B4RT+QXBQsvAOdc3XymqDDPHx1BgPgsdAA5SIifona89YtRATDzw==",
+      "dev": true
+    },
     "node_modules/dir-glob": {
       "version": "3.0.1",
       "resolved": "https://registry.npmjs.org/dir-glob/-/dir-glob-3.0.1.tgz",
@@ -1367,6 +1373,15 @@
         "@esbuild/win32-arm64": "0.16.17",
         "@esbuild/win32-ia32": "0.16.17",
         "@esbuild/win32-x64": "0.16.17"
+      }
+    },
+    "node_modules/escalade": {
+      "version": "3.1.1",
+      "resolved": "https://registry.npmjs.org/escalade/-/escalade-3.1.1.tgz",
+      "integrity": "sha512-k0er2gUkLf8O0zKJiAhmkTnJlTvINGv7ygDNPbeIsX/TJjGJZHuh9B2UxbsaEkmlEo9MfhrSzmhIlhRlI2GXnw==",
+      "dev": true,
+      "engines": {
+        "node": ">=6"
       }
     },
     "node_modules/escape-string-regexp": {
@@ -4138,6 +4153,12 @@
       "integrity": "sha512-z2wJZXrmeHdvYJp/Ux55wIjqo81G5Bp4c+oELTW+7ar6SogWHajt5a9gO3s3IDaGSAXjDk0vlQKN3rms8ab3og==",
       "dev": true
     },
+    "defined": {
+      "version": "1.0.1",
+      "resolved": "https://registry.npmjs.org/defined/-/defined-1.0.1.tgz",
+      "integrity": "sha512-hsBd2qSVCRE+5PmNdHt1uzyrFu5d3RwmFDKzyNZMFq/EwDNJF7Ee5+D5oEKF0hU6LhtoUF1macFvOe4AskQC1Q==",
+      "dev": true
+    },
     "detect-indent": {
       "version": "6.1.0",
       "resolved": "https://registry.npmjs.org/detect-indent/-/detect-indent-6.1.0.tgz",
@@ -4159,6 +4180,12 @@
       "version": "4.3.0",
       "resolved": "https://registry.npmjs.org/devalue/-/devalue-4.3.0.tgz",
       "integrity": "sha512-n94yQo4LI3w7erwf84mhRUkUJfhLoCZiLyoOZ/QFsDbcWNZePrLwbQpvZBUG2TNxwV3VjCKPxkiiQA6pe3TrTA==",
+      "dev": true
+    },
+    "didyoumean": {
+      "version": "1.2.2",
+      "resolved": "https://registry.npmjs.org/didyoumean/-/didyoumean-1.2.2.tgz",
+      "integrity": "sha512-gxtyfqMg7GKyhQmb056K7M3xszy/myH8w+B4RT+QXBQsvAOdc3XymqDDPHx1BgPgsdAA5SIifona89YtRATDzw==",
       "dev": true
     },
     "dir-glob": {
@@ -4226,6 +4253,12 @@
         "@esbuild/win32-ia32": "0.16.17",
         "@esbuild/win32-x64": "0.16.17"
       }
+    },
+    "escalade": {
+      "version": "3.1.1",
+      "resolved": "https://registry.npmjs.org/escalade/-/escalade-3.1.1.tgz",
+      "integrity": "sha512-k0er2gUkLf8O0zKJiAhmkTnJlTvINGv7ygDNPbeIsX/TJjGJZHuh9B2UxbsaEkmlEo9MfhrSzmhIlhRlI2GXnw==",
+      "dev": true
     },
     "escape-string-regexp": {
       "version": "4.0.0",
