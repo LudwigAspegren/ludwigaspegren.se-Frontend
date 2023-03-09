@@ -1,7 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte'
   let mainElement: HTMLElement
-  scroll
 
   let xScroll: number
   let yScroll: number

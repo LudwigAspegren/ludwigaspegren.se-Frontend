@@ -10,5 +10,5 @@ export const load: LayoutLoad = async ({ fetch }) => {
         const data: PhotosetViewModel = await res.json();
         return data;
     }
-    let serieID = 
+    // let serieID = 
 }    

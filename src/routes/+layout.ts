@@ -1,7 +1,7 @@
-import { variables } from '$lib/variables'
-import type PhotosetViewModel from '$types/photosetViewModel'
-import "../app.css"
-import type { LayoutLoad } from './$types'
+import { variables } from '$lib/variables';
+import type PhotosetViewModel from '$types/photosetViewModel';
+import '../app.css';
+import type { LayoutLoad } from './$types';
 
 export const load: LayoutLoad = async ({ fetch }) => {
   const fetchPhotoset = async (id: string): Promise<PhotosetViewModel> => {
