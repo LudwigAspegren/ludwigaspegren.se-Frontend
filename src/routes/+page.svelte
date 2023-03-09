@@ -24,17 +24,17 @@
       name: 'photos',
       url: 'https://live.staticflickr.com/65535/51782603466_0ae79f254b_k.jpg',
       width: '70vw'
-    },
-    {
-      name: 'visualisation',
-      url: 'https://live.staticflickr.com/65535/51811013310_efa0f759cf_k.jpg',
-      width: '70vw'
-    },
-    {
-      name: 'modelling',
-      url: 'https://live.staticflickr.com/65535/51810035699_7c4c0f9264_k.jpg',
-      width: '100vw'
     }
+    // {
+    //   name: 'visualisation',
+    //   url: 'https://live.staticflickr.com/65535/51811013310_efa0f759cf_k.jpg',
+    //   width: '70vw'
+    // },
+    // {
+    //   name: 'modelling',
+    //   url: 'https://live.staticflickr.com/65535/51810035699_7c4c0f9264_k.jpg',
+    //   width: '100vw'
+    // }
   ]
 
   const animate = async (e: Event) => {
