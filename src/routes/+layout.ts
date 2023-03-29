@@ -1,7 +1,7 @@
 import { fetchAll, photosetIds } from '$stores/flickrStore'
 import '../app.css'
 
-export async function load() {
+export const load = async () => {
   const photosets = await fetchAll(photosetIds)
   const photos = photosets.map(photoSet => { return photoSet.photos }).flat()
   return {
