@@ -54,7 +54,7 @@
       {data.currentPhotoset.title}
     </h1>
   </div>
-  <section>
+  <section class="xl:mx-52 md:mx-14">
     {#each changeAlbumQuality(qualities.medium, data.currentPhotoset.photos) as photo, index}
       <a href="/photos/{photo.id}" class="items" id="image-{index}">
         <Image {photo} bind:this={images[index]} />
@@ -77,7 +77,6 @@
     align-items: center;
     row-gap: 10px;
     column-gap: 10px;
-    padding: 0 300px 0 300px;
     padding-top: 200px;
   }
   .center {

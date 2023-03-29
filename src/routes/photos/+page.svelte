@@ -92,7 +92,6 @@
     grid-template-rows: repeat(9, 1fr);
     place-items: center;
     gap: 1rem;
-    padding: 100px;
     box-sizing: border-box;
     height: 100%;
   }
