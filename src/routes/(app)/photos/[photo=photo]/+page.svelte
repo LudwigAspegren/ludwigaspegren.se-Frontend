@@ -14,7 +14,7 @@
   })
   const goBack = () => {
     if (browser) {
-      goto(previousPage, { replaceState: false })
+      goto(previousPage, { replaceState: true })
     }
   }
 

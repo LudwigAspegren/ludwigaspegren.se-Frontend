@@ -4,13 +4,13 @@
 
 <section>
   {#each $page.data.photosets as photoset}
-    <a href="/photos/{photoset.id}" class="fade-in">{photoset.title}</a>
+    <a href="/archive" class="fade-in">{photoset.title}</a>
   {/each}
 </section>
 
 <style>
   section {
-    padding: 12px;
+    padding: 16px;
     display: flex;
     justify-content: center;
     gap: 1rem;
