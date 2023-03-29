@@ -25,7 +25,7 @@
   }
 </script>
 
-<main class="mx-auto  px-4 max-w-6xl">
+<main class="mx-auto  px-4 max-w-6xl py-4">
   <div class="flex flex-row flex-wrap justify-between  pb-4">
     {#each data.photosets as photoset, index}
       <!-- svelte-ignore a11y-mouse-events-have-key-events -->
